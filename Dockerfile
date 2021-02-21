@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:14-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -10,7 +10,12 @@ COPY package*.json ./
 
 # RUN npm install
 # If you are building your code for production
-RUN npm ci --only=production
+RUN apk --no-cache --virtual build-dependencies add \
+    python \
+    make \
+    g++ \
+    && npm install \
+    && apk del build-dependencies
 
 # Bundle app source
 COPY . .
