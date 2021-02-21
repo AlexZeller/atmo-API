@@ -1,5 +1,5 @@
 {
-  "name": "hometemperatureserver",
+  "name": "atmo-api",
   "version": "0.0.1",
   "description": "",
   "main": "server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexZeller/HomeTemperatureServer.git"
+    "url": "git+https://github.com/AlexZeller/atmo-API.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alexander Zeller",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AlexZeller/HomeTemperatureServer/issues"
+    "url": "https://github.com/AlexZeller/atmo-API/issues"
   },
-  "homepage": "https://github.com/AlexZeller/HomeTemperatureServer#readme",
+  "homepage": "https://github.com/AlexZeller/atmo-API#readme",
   "dependencies": {
     "3": "^2.1.0",
     "express": "^4.17.1",
