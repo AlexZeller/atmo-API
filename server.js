@@ -10,7 +10,12 @@ const mqtt_broker_url = "mqtt://mosquitto"
 const port = 8090
 
 // Create Express App
+var bodyParser = require('body-parser');
+// Set up express app
 let app = express();
+// Configure encoding
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -29,8 +34,8 @@ const db = new sqlite.Database('./db.sqlite', (err) => {
 db.run(`CREATE TABLE IF NOT EXISTS Temperature (
     Timestamp TIMESTAMP NOT NULL DEFAULT (datetime('now','localtime')),
     Sensor INT(1),
-    Temperature DECIMAL(3, 2),
-    Humidity Decimal(3, 2),
+    Temperature DECIMAL(3, 1),
+    Humidity Decimal(3, 1),
     Airpressure INT(1500),
     Battery INT(3),
     Linkquality Int(4),

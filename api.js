@@ -62,6 +62,7 @@ module.exports = function (expressApp, db) {
     );
 
     function writeSettings(path) {
+      console.log(req.body)
       fs.writeFile(path, JSON.stringify(req.body, null, 2), function writeJSON(
         err
       ) {

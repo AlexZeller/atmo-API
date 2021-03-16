@@ -1,14 +1,14 @@
 {
-    "sensors": [
-        {
-            "id": 1,
-            "displayName": "Wohnzimmer",
-            "icon": "test"
-        },
-        {
-            "id": 2,
-            "displayName": "Badezimmer",
-            "icon": "test"
-        }
-    ]
+  "sensors": [
+    {
+      "id": 1,
+      "displayName": "Wohnzimmer",
+      "icon": "mdi-sofa"
+    },
+    {
+      "id": 2,
+      "displayName": "Badezimmer",
+      "icon": "mdi-shower"
+    }
+  ]
 }
