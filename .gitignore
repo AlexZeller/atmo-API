@@ -106,3 +106,6 @@ dist
 # Sqlite
 
 db.sqlite
+
+# certificates
+/certificates/
