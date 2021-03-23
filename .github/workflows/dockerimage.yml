@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-18.04    
     env:      
       DOCKER_REGISTRY: registry.hub.docker.com      
-      DOCKER_IMAGE: alexanderzeller/atmo-API     
+      DOCKER_IMAGE: alexanderzeller/atmo-api     
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
       DOCKER_TARGET_PLATFORM: linux/arm/v6                
