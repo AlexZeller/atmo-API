@@ -1,5 +1,8 @@
 FROM node:14-alpine
 
+# Necessary for timzone support
+RUN apk add --no-cache tzdata
+
 # Create app directory
 WORKDIR /usr/src/app
 
