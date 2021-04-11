@@ -1,6 +1,4 @@
 const express = require("express");
-const https = require('https')
-const fs = require('fs')
 const sqlite = require('sqlite3').verbose();
 let api = require('./api');
 let mqtt = require("./mqtt")
@@ -9,7 +7,7 @@ let mqtt = require("./mqtt")
 const mqtt_broker_url = "mqtt://mosquitto"
 
 // Port for the API Server
-const port = 8443
+const port = 8090
 
 // Create Express App
 var bodyParser = require('body-parser');
@@ -23,11 +21,6 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
-const httpsOptions = {
-    key: fs.readFileSync('certificates/atmo.local.key'),
-    cert: fs.readFileSync('certificates/atmo.local.crt')
-}
 
 // Connect to SQLite Database
 const db = new sqlite.Database('./db.sqlite', (err) => {
@@ -51,9 +44,9 @@ db.run(`CREATE TABLE IF NOT EXISTS Temperature (
 
 // Initialize HTTP Server
 api(app, db);
-var httpsServer = https.createServer(httpsOptions, app);
-httpsServer.listen(8443);
-console.info('HTTPS Server is running on port ' + port);
+app.listen(port, () => {
+    console.log('API server running at ' + port)
+})
 
 //Initialize MQTT Broker Connection
 mqtt(mqtt_broker_url, db)
